@@ -1,3 +1,20 @@
+想定している構成図。
+
+current directory/
+│
+├── Start.py
+│
+├── Midpoint.py
+│
+├── Endpoint.py
+│
+└── Config/
+    │
+    ├── config.txt
+    │   # AMAZON_API_KEYが保存されている
+    └── serviceAccountKey.json
+        # Firebaseのサービスアカウントキーファイル
+
 ChatGPTって便利すぎて泣いてる
 
 要件定義とフロー
