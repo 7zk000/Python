@@ -15,36 +15,40 @@
             padding: 10px 20px;
             font-size: 16px;
         }
-        #randomTime {
+        #randomTimes {
             margin-top: 20px;
             font-size: 20px;
             font-weight: bold;
+            text-align: left;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <button onclick="generateRandomTime()">ランダムな時間を生成</button>
-        <div id="randomTime"></div>
+        <button onclick="generateRandomTimes()">ランダムな時間を生成</button>
+        <div id="randomTimes"></div>
     </div>
 
     <script>
-        function generateRandomTime() {
+        function generateRandomTimes() {
             // 現在の日付を取得
             const today = new Date();
             const month = today.getMonth() + 1;
             const date = today.getDate();
 
-            // ランダムな時、分、秒を生成
-            const hour = Math.floor(Math.random() * 24) + 1; // 1時〜24時
-            const minute = Math.floor(Math.random() * 60); // 0分〜59分
-            const second = Math.floor(Math.random() * 60); // 0秒〜59秒
+            let timesList = '';
+            for (let hour = 1; hour <= 24; hour++) {
+                const minute = Math.floor(Math.random() * 60); // 0分〜59分
+                const second = Math.floor(Math.random() * 60); // 0秒〜59秒
 
-            // 生成された時間をフォーマット
-            const formattedTime = `${month}/${date} ${hour}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+                // 生成された時間をフォーマット
+                const formattedTime = `${month}/${date} ${hour}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+                timesList += `<li>${formattedTime}</li>`;
+            }
 
             // 結果を表示
-            document.getElementById('randomTime').textContent = formattedTime;
+            document.getElementById('randomTimes').innerHTML = `<ul>${timesList}</ul>`;
         }
     </script>
 </body>
