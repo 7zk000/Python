@@ -1,3 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ランダムな時間生成</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #randomTime {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="generateRandomTime()">ランダムな時間を生成</button>
+        <div id="randomTime"></div>
+    </div>
+
+    <script>
+        function generateRandomTime() {
+            // 現在の日付を取得
+            const today = new Date();
+            const month = today.getMonth() + 1;
+            const date = today.getDate();
+
+            // ランダムな時、分、秒を生成
+            const hour = Math.floor(Math.random() * 24) + 1; // 1時〜24時
+            const minute = Math.floor(Math.random() * 60); // 0分〜59分
+            const second = Math.floor(Math.random() * 60); // 0秒〜59秒
+
+            // 生成された時間をフォーマット
+            const formattedTime = `${month}/${date} ${hour}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
+
+            // 結果を表示
+            document.getElementById('randomTime').textContent = formattedTime;
+        }
+    </script>
+</body>
+</html>
+
+
 想定している構成図。
 
 current directory/
